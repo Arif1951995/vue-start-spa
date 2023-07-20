@@ -1,16 +1,15 @@
 <template>
-  <a
-    :href="page.link.url"
+  <router-link
+    :to="`/${index}`"
     class="block py-2 pr-4 pl-3 rounded md:p-0"
-    :class="{ 'text-blue-700': isActive }"
+    active-class="text-blue-700"
     aria-current="page"
-    @click.prevent="$bus.$emit(`linkClicked`, index)"
-    >{{ page.link.text }}</a
+    >{{ page.link.text }}</router-link
   >
 </template>
 
 <script>
 export default {
-  props: ["page", "index", "isActive"],
+  props: ["page", "index"],
 };
 </script>

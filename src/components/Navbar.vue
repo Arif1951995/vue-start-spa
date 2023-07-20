@@ -36,6 +36,7 @@
         aria-expanded="false"
       >
         <span class="sr-only">Open main menu</span>
+
         <svg
           class="w-6 h-6"
           fill="currentColor"
@@ -65,13 +66,18 @@
         <ul
           class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium"
         >
-          <li v-for="(page, index) in pages">
-            <navbar-link
-              :page="page"
-              :isActive="activePage === index"   
-              :index="index"
+          <li v-if="pages.length"  v-for="(page, index) in pages">
+            <navbar-link :page="page" :index="index"> </navbar-link>
+          </li>
+
+          <li>
+            <router-link
+              :to="`/create-page`"
+              class="block py-2 pr-4 pl-3 rounded md:p-0"
+              aria-current="page"
+              active-class="text-blue-700"
+              >Create Page</router-link
             >
-            </navbar-link>
           </li>
         </ul>
       </div>
@@ -86,6 +92,17 @@ export default {
   components: {
     NavbarLink,
   },
-  props: ["pages", "activePage", "navLinkClick"],
+
+  created() {
+    console.log(this.$bus)
+    // this.pages = this.$bus.getAllPages();
+  },
+  data() {
+    return {
+      pages: []
+    }
+  },
+
+
 };
 </script>

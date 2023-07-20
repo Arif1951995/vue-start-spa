@@ -5,13 +5,16 @@ import CreatePageVue from "./components/CreatePage.vue";
 const routes =  createRouter({
     history: createWebHashHistory(),
     routes: [{
-        path: "/",
-        component: PageContentVue
+        path: "/:index?",
+        component: PageContentVue,
+        props: true
     }, {
         path: "/create-page",
         component: CreatePageVue
 
-    }]
+    },
+   
+]
 })
 
 
