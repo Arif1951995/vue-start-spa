@@ -8,8 +8,11 @@ import $pages from "./Data";
 
 const app = createApp(App)
 
-app.config.globalProperties.$pages = $pages;
-app.config.globalProperties.$bus = $bus;
+// app.config.globalProperties.$pages = $pages;
+// app.config.globalProperties.$bus = $bus;
+
+app.provide("$bus", $bus);
+app.provide("$pages", $pages);
 
 
 

@@ -102,7 +102,7 @@ export default {
         published: this.published,
       };
 
-      this.$bus.$emit("pageCreated", state);
+      // this.$bus.$emit("pageCreated", state);
 
       // this.pageCreated(state);
 

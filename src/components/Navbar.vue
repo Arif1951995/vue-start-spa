@@ -72,29 +72,32 @@
 
           <li>
             <router-link
-              :to="`/create-page`"
+              to="/pages"
               class="block py-2 pr-4 pl-3 rounded md:p-0"
               aria-current="page"
               active-class="text-blue-700"
-              >Create Page</router-link
+              >Pages</router-link
             >
           </li>
         </ul>
       </div>
     </div>
-    <div class="btn btn-primary">Toggle Dark Mode</div>
   </nav>
 </template>
 
 <script>
 import NavbarLink from "./NavbarLink.vue";
 export default {
+  inject: ["$pages", "$bus"],
   components: {
     NavbarLink,
   },
 
   created() {
     this.pages = this.$pages.getAllPages();
+    this.$bus.$on("page-updated", ({ index, page }) => {
+      this.pages = [...this.$pages.getAllPages()];
+    });
   },
   data() {
     return {
