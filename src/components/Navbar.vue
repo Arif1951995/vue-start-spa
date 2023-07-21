@@ -66,7 +66,7 @@
         <ul
           class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium"
         >
-          <li v-if="pages.length"  v-for="(page, index) in pages">
+          <li v-if="pages.length" v-for="(page, index) in pages">
             <navbar-link :page="page" :index="index"> </navbar-link>
           </li>
 
@@ -94,15 +94,12 @@ export default {
   },
 
   created() {
-    console.log(this.$bus)
-    // this.pages = this.$bus.getAllPages();
+    this.pages = this.$pages.getAllPages();
   },
   data() {
     return {
-      pages: []
-    }
+      pages: [],
+    };
   },
-
-
 };
 </script>

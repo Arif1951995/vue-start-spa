@@ -13,7 +13,7 @@ app.config.globalProperties.$bus = $bus;
 
 
 
-app.use(routes)
+app.use(routes);
 
 
 

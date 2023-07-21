@@ -11,6 +11,7 @@ export default {
   props: ["index"],
   created() {
     this.page = this.$pages.getPage(this.index);
+    
   },
 
   data() {
